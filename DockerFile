@@ -1,0 +1,27 @@
+FROM node:16.15.0
+
+# Create the workdir 
+RUN mkdir -p /var/www/backend-first-task
+
+RUN mkdir -p /var/www/backend-first-task/public
+
+# RUN rm -rf /var/www/bo/models
+
+# Set the workdir to /var/www/backend-first-task
+WORKDIR /var/www/backend-first-task
+
+COPY ./back/first-task/package*.json ./
+
+# Copy project folders & files
+COPY ./back/first-task .
+
+RUN rm -f .env
+
+COPY .env .
+
+RUN npm i
+
+# Run build
+RUN npm run build
+
+CMD npm run prod

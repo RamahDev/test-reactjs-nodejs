@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Twitch - Redirect OAuth</title>
+</head>
+
+<body>
+  <script>
+    try {
+      opener.callbackOAuthFailure();
+    } catch(e) {
+
+    } finally {
+      self.close();
+      window.location.replace("/");
+    }
+    
+  </script>
+</body>
+</html>

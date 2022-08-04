@@ -1,0 +1,90 @@
+@import '../../scss/variables';
+
+.modal__block {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  z-index: 9999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  overflow-y: hidden;
+  min-height: 100vh;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+
+  .modal__content {
+    max-height: 85vh;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; /* Could be more or less, depending on screen size */
+    background-color: #fefefe;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    .modal__header {
+      padding: 18px;
+      color: white;
+      font-size: 24px;
+      font-size: 2.2rem;
+      background-color: $primary-color;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      .close {
+        color: #fff;
+        opacity: 1;
+        &:hover {
+          color: #fff;
+          opacity: 1;
+        }
+        &:focus {
+          color: #fff;
+          opacity: 1;
+        }
+        img {
+          width: 17px;
+        }
+      }
+    }
+
+    .modal__footer {
+      padding: 18px;
+      background-color: $white;
+      border-radius: 0 0 8px 8px;
+      height: 80px;
+
+      & > div {
+        display: flex;
+        justify-content: space-around;
+        font-size: 14px;
+      }
+    }
+
+    .modal__body {
+      max-height: 80vh;
+      overflow: auto;
+      padding: 20px;
+      color: $grey-text;
+      letter-spacing: 1px;
+      font-size: 14px;
+      label {
+        display: block;
+        input[type='text'],
+        input[type='email'] {
+          margin-top: 10px;
+        }
+      }
+      input[type='text'],
+      input[type='email'],
+      input[type='number'],
+      input[type='password'] {
+        padding: 1rem;
+        margin: 10px 0;
+      }
+    }
+  }
+}

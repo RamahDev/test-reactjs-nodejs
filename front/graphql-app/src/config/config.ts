@@ -1,0 +1,17 @@
+export const serverUrl = "http://localhost:4000/";
+// export const bearerToken = "6cacdim8h506npetzg6rf8dtnkwffr";
+// export const clientId = "6wwqk8mubwo9xqqkx85912urzt5yh9";
+export const bearerToken = "qg8jaut1vihqjhog79t70huw512g44";
+export const clientId = "tl2p4sd4xrv9b8euj5yuisdle560d6";
+export const topGamesUrl = "https://api.twitch.tv/helix/games/top";
+export const streamsUrl = "https://api.twitch.tv/helix/streams";
+export const channelsUrl = "https://api.twitch.tv/helix/channels";
+export const followsUrl = "https://api.twitch.tv/helix/users/follows";
+export const usersUrl = "https://api.twitch.tv/helix/users";
+export const subscriptionsUrl = "https://api.twitch.tv/helix/subscriptions";
+export const clipsUrl = "https://api.twitch.tv/helix/clips";
+export const videosUrl = "https://api.twitch.tv/helix/videos";
+export const streamersApiUrl = `${serverUrl}api/streamers`;
+export const streamsForSpecificGame = `${serverUrl}api/streamersForSpecificGame`;
+export const gamesUrl = `${serverUrl}api/games`;
+export const serverClipsUrl = `${serverUrl}api/clips`;

@@ -1,0 +1,101 @@
+version: '3.8'
+services:
+  twitch-redis:
+    image: "redis:alpine"
+    expose: 
+      - 6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  mongodb1:
+    image: mongo:latest
+    networks:
+      default:
+    volumes:
+      - data1:/data/db
+      - config1:/data/configdb
+    ports:
+      - 30001:27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+
+  mongodb2:
+    image: mongo:latest
+    networks:
+      default:
+    ports:
+      - 30002:27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+
+  mongodb3:
+    image: mongo:latest
+    networks:
+      default:
+    ports:
+      - 30003:27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+
+  mongoclient:
+    image: mongo
+    networks:
+      default:
+    depends_on:
+      - mongodb1
+      - mongodb2
+      - mongodb3
+    volumes:
+      - ./deployment_scripts:/deployment_scripts
+    entrypoint:
+      - /deployment_scripts/initiate_replica.sh
+
+  backend-twitch-graphql:
+    container_name: twitch-graphql
+    restart: always
+    image: backend-twitch-graphql
+    build:
+      dockerfile: DockerFile.dev
+      context: .
+    ports:
+      - "4000:4000"
+      - "4004:4004"
+    depends_on:
+      # - mongo
+      - twitch-redis
+      # - mongodb_migrate
+      - mongodb1
+      - mongodb2
+      - mongodb3
+    # external_links:
+      # - mongodb_migrate
+      # - mongo
+    volumes:
+      - ./VOLUMES/minio:/data/upload
+  twitch-tasks:
+    depends_on:
+      # - twitch-db
+      # - twitch-app
+      - twitch-redis
+      # - mongodb_migrate
+      - mongodb1
+      - mongodb2
+      - mongodb3
+    build:
+      dockerfile: DockerFile.firstTask
+      context: .
+    environment:
+      TWITCH_CLIENT_ID: ${TWITCH_CLIENT_ID}
+      TWITCH_CLIENT_SECRET: ${TWITCH_CLIENT_SECRET}
+      YOUTUBE_API_KEY: ${YOUTUBE_API_KEY}
+      TWITTER_CLIENT_ID: ${TWITTER_CLIENT_ID}
+      TWITTER_CLIENT_SECRET: ${TWITTER_CLIENT_SECRET}
+      TWITTER_TOKEN: ${TWITTER_TOKEN}
+      REDIS_HOST: twitch-redis
+      REDIS_PORT: ${REDIS_PORT}
+
+volumes:
+  data1:
+  config1:
+  uploads:
+  postgres-data:
+  mongo-db:
+  # mongo: ~
+  # mongodb_migrate:

@@ -1,0 +1,35 @@
+@import "utilities/variables";
+
+.App {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  .MuiAppBar-colorPrimary{
+    color:#fff;
+    background: linear-gradient(120deg, $blue-gamer, $dark-gray);
+  }
+  .MuiButton-containedPrimary, .MuiButton-containedPrimary:hover{
+    background: linear-gradient(120deg, $blue-gamer, $dark-gray);
+  }
+  .MuiCircularProgress-colorPrimary {
+    color: $blue-gamer;
+  }
+  .MuiCardContent-root{
+    background: linear-gradient(120deg, $blue-gamer, $dark-gray);
+    color:#fff;
+  }
+  .MuiGridListTileBar-root{
+    background: linear-gradient(120deg, $blue-gamer-rgba, $dark-gray-rgba);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 60px
+}

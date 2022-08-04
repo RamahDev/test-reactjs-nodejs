@@ -1,0 +1,32 @@
+.root{
+    .MuiButton-root, .MuiFormLabel-root, .MuiInputBase-input, .MuiIconButton-root{
+        color:#fff;
+    }
+    
+}
+.auto-complete .MuiInput-underline:after { 
+    border-bottom : 2px solid rgba(255, 255, 255, 0.87);
+}
+
+.auto-complete .MuiInput-underline:before, .main-settings-container .MuiInput-underline:hover:not(.Mui-disabled):before{
+    border-bottom : 1px solid #fff; 
+}
+
+.auto-complete .MuiOutlinedInput-notchedOutline, .main-settings-container .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{
+    border-color : #fff;
+}
+.auto-complete .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+    border-color : #fff;
+}
+
+.auto-complete .MuiOutlinedInput-notchedOutline, .main-settings-container .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{
+    border-color : #fff;
+}
+
+.auto-complete .MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.87);
+}
+
+.auto-complete .MuiFormLabel-root.Mui-focused, .auto-complete .MuiFormLabel-root, .auto-complete .MuiInputBase-root, .auto-complete .MuiIconButton-root{
+    color:#fff;
+}

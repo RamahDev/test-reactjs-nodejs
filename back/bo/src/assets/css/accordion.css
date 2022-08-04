@@ -1,0 +1,37 @@
+.accordion {
+  background-color: rgb(249, 250, 251);
+  cursor: pointer;
+  padding: 0.7rem 2rem;
+  width: 100%;
+  border: none;
+  border-radius: 50px;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  /* transition:  0.2s; */
+}
+
+.accordion.child {
+  /* border-radius: 0.4rem; */
+  padding-left: 4rem;
+  /* background-color: #e6e6e6; */
+}
+
+.active,
+.accordion:hover {
+  background-color: #fff;
+  color: rgb(6, 78, 59) !important;
+  font-weight: 600;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.panel {
+  /* padding: 0 0.5rem; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.panel.show {
+  max-height: 100vh;
+}

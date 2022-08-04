@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+        <title>Twitch</title>
+        <script defer="defer" src="/build.js">
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js" integrity="sha512-qlzIeUtTg7eBpmEaS12NZgxz52YYZVF5myj89mjJEesBd/oE9UPsYOX2QAXzvOAZYEvQohKdcY8zKE02ifXDmA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js" integrity="sha512-9jGNr5Piwe8nzLLYTk8QrEMPfjGU0px80GYzKZUxi7lmCfrBjtyCc1V5kkS5vxVwwIB7Qpzc7UxLiQxfAN30dw==" crossorigin="anonymous"></script>
+        <script src= "//player.twitch.tv/js/embed/v1.js"></script>
+            <div id="player"></div>
+            <script type="text/javascript">
+                var options = {
+                    width: 854,
+                    height: 480, 
+                    video: "v75527399"       
+                };
+                var player = new Twitch.Player("player", options);
+                player.setVolume(0.5);
+            </script>
+        </body>
+</html>
